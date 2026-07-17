@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AI RiskScan™ — Descubra en 10 minutos qué tan expuesta está su organización por el uso de inteligencia artificial. Diagnóstico ejecutivo gratuito por CSTECH." />
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <title>AI RiskScan™ — CSTECH</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body, #root { height: 100%; }
+      body { background: #0A1628; -webkit-font-smoothing: antialiased; }
+      input::placeholder { color: #64748B; }
+      select option { background: #1B2E4B; color: #FFFFFF; }
+
+      @keyframes spin    { to { transform: rotate(360deg); } }
+      @keyframes fadeUp  { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+      @keyframes scaleIn { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+      .fade-up  { animation: fadeUp  .38s ease both; }
+      .scale-in { animation: scaleIn .32s ease both; }
+
+      @media print {
+        body { background: #fff !important; }
+        .no-print { display: none !important; }
+        * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
