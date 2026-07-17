@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "AI RiskScan™ — Diagnóstico Ejecutivo de Riesgo en IA by CSTECH",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,7 +14,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.7.0",
-    "vite": "^7.0.0"
+    "@vitejs/plugin-react": "4.3.1",
+    "vite": "5.4.11"
   }
 }
