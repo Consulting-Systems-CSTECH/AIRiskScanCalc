@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import {
   DOMAINS, SECTORS, SIZES,
   domainScore, overallScore, riskMeta, isDomainComplete, generateReport,
@@ -328,7 +329,7 @@ function Gauge({ score, color }) {
   )
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
+// ───────────────────────────────��─────────────────────────────────────────────
 // SCREEN 7 — RESULTS
 // ─────────────────────────────────────────────────────────────────────────────
 const URGENCY_COLOR = { INMEDIATA: C.danger, 'CORTO PLAZO': C.warn, 'MEDIANO PLAZO': C.green }
@@ -532,31 +533,47 @@ export default function App() {
     nav(7)
   }
 
-  if (step === 0) return <Intro onStart={() => nav(1)} />
+  if (step === 0) return (
+    <>
+      <Intro onStart={() => nav(1)} />
+      <Analytics />
+    </>
+  )
 
   if (step === 1) return (
-    <CompanyInfo
-      info={info} onChange={setInfo}
-      onNext={() => nav(2)} onBack={() => nav(0)}
-    />
+    <>
+      <CompanyInfo
+        info={info} onChange={setInfo}
+        onNext={() => nav(2)} onBack={() => nav(0)}
+      />
+      <Analytics />
+    </>
   )
 
   if (step >= 2 && step <= 6) {
     const di = step - 2
     return (
-      <DomainStep
-        domain={DOMAINS[di]}
-        domainIndex={di}
-        answers={answers}
-        onChange={setAnswers}
-        onNext={() => step === 6 ? goToResults() : nav(step + 1)}
-        onBack={() => nav(step - 1)}
-        isLast={step === 6}
-      />
+      <>
+        <DomainStep
+          domain={DOMAINS[di]}
+          domainIndex={di}
+          answers={answers}
+          onChange={setAnswers}
+          onNext={() => step === 6 ? goToResults() : nav(step + 1)}
+          onBack={() => nav(step - 1)}
+          isLast={step === 6}
+        />
+        <Analytics />
+      </>
     )
   }
 
-  if (step === 7 && report) return <Results answers={answers} info={info} report={report} />
+  if (step === 7 && report) return (
+    <>
+      <Results answers={answers} info={info} report={report} />
+      <Analytics />
+    </>
+  )
 
   return null
 }
